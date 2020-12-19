@@ -9,3 +9,9 @@
 * Concurrency problems among computers.
 * Solutions for partial failures.
 * Methods to get higher performance.
+
+#### Terms:
+* Scalability: the performance/throughput of the system can be imporved by adding more computers to it.
+* Availability: the system is always available unless certain amount of failures happen.
+* Recoverability: recover failures happen in the system. Such as restore the storage data by using non-volatile storage or replications.
+* MapReduce: a distributed system framework that helps distributing work to all computers in the system.
