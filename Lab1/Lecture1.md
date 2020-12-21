@@ -17,11 +17,11 @@
 * MapReduce: a distributed system framework that helps distributing work to all computers in the system.
 
 #### Understanding of MapReduce
-* Basic ideas: 
-  - **MapReduce** is a programming model that:
+* Basic ideas:  
+  - **MapReduce** is a programming model that:  
     * Processes a key/value pair to **generate** a set of intermediate key/value pairs. 
     * Use reduce function that **merges** all intermediate values associated with the same intermediate key.
-* How does it related to distributed system?
-  - 
+  - How does it related to distributed system?  
+    Programs written in MapReduce style will be automatically **parallelized** and **executed on a large cluster of commodity machines**. The run-time system takes care of the details of partitioning the input data, scheduling the program’s execution across a set of machines, handling machine failures, and managing the required inter-machine communication.
 
 * Avoid network communications in case that network throughput is limited.
