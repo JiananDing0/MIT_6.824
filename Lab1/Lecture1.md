@@ -18,9 +18,10 @@
 
 #### Understanding of MapReduce
 * Basic ideas: 
-**MapReduce** is a programming model that:
-  - Processes a key/value pair to **generate** a set of intermediate key/value pairs. 
-  - Use reduce function that **merges** all intermediate values associated with the same intermediate key.
+  - **MapReduce** is a programming model that:
+    * Processes a key/value pair to **generate** a set of intermediate key/value pairs. 
+    * Use reduce function that **merges** all intermediate values associated with the same intermediate key.
 * How does it related to distributed system?
+  - 
 
 * Avoid network communications in case that network throughput is limited.
