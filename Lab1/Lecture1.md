@@ -21,4 +21,4 @@
   - Processes a key/value pair to **generate** a set of intermediate key/value pairs. 
   - Use reduce function that **merges** all intermediate values associated with the same intermediate key.
 * It is a method related to distributed system published by Google in 2004.
-* Avoid network communications in case that network speed is pretty low.
+* Avoid network communications in case that network throughput is limited.
