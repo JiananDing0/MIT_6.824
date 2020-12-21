@@ -23,10 +23,7 @@
     * The MapReduce library groups together all intermediate values associated with the same intermediate key.
     * Reduce: **Merges** all intermediate values associated with the same intermediate key.  
     ```
-    In case that MapReduce is only a framework, or library that is implemented to support 
-    computation in distributed systems, users can implement their own versions of Map and 
-    Reduce function. Then call other functions in the library to support those efficient
-    calculations.
+    In case that MapReduce is only a framework, or library that is implemented to support computation in distributed systems, users can implement their own versions of Map and Reduce function. Then call other functions in the library to support more efficient calculations.
     ```
   - How does it related to distributed system?  
     Programs written in MapReduce style will be automatically **parallelized** and **executed on a large cluster of commodity machines**. The run-time system takes care of the details of partitioning the input data, scheduling the program’s execution across a set of machines, handling machine failures, and managing the required inter-machine communication.
