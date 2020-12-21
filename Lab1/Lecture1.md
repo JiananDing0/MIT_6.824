@@ -17,8 +17,8 @@
 * MapReduce: a distributed system framework that helps distributing work to all computers in the system.
 
 #### Understanding of MapReduce
-* A method related to distributed system published by Google in 2004.
-* Avoid network communications in case that network speed is pretty low.
 * Basic steps: **MapReduce** is a programming model that:
   - Processes a key/value pair to **generate** a set of intermediate key/value pairs. 
   - Use reduce function that **merges** all intermediate values associated with the same intermediate key.
+* It is a method related to distributed system published by Google in 2004.
+* Avoid network communications in case that network speed is pretty low.
