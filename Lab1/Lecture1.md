@@ -29,7 +29,7 @@
     ```
   - How does it related to distributed system?  
     Programs written in MapReduce style will be automatically **parallelized** and **executed on a large cluster of commodity machines**. The run-time system takes care of the details of partitioning the input data, scheduling the program’s execution across a set of machines, handling machine failures, and managing the required inter-machine communication.  
-    ![Overview of the execution process from user of MapReduce library to work distribution:](image/figure1.png)
+    ![Overview of the execution process from user of MapReduce library to work distribution:](Images/figure1.png)
     
 
 * Avoid network communications in case that network throughput is limited.
