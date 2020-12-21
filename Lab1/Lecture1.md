@@ -19,3 +19,9 @@
 #### Understanding of MapReduce
 * A method related to distributed system published by Google in 2004.
 * Avoid network communications in case that network speed is pretty low.
+* Basic steps:
+```
+Users specify a map function that processes a key/value pair to:
+- Generate a set of intermediate key/value pairs. 
+- Use reduce function that merges all intermediate values associated with the same intermediate key.
+```
