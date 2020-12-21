@@ -15,3 +15,7 @@
 * Availability: the system is always available unless certain amount of failures happen.
 * Recoverability: recover failures happen in the system. Such as restore the storage data by using non-volatile storage or replications.
 * MapReduce: a distributed system framework that helps distributing work to all computers in the system.
+
+#### Understanding of MapReduce
+* A method related to distributed system published by Google in 2004.
+* Avoid network communications in case that network speed is pretty low.
