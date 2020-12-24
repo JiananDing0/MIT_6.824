@@ -14,6 +14,7 @@
 * Scalability: the performance/throughput of the system can be imporved by adding more computers to it.
 * Availability: the system is always available unless certain amount of failures happen.
 * Recoverability: recover failures happen in the system. Such as restore the storage data by using non-volatile storage or replications.
+* RPC: Remote procedure call is a request–response message-passing procedure. The point is that in distributed systems, the call will automatically cause a procedure to execute in a different address space(commonly on another computer on a shared network). In this case, the programmers can treat local calls and remote calls as basically the same case and come up with similar codes.
 
 #### Understanding of MapReduce
 
