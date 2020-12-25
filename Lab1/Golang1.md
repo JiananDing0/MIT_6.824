@@ -1,6 +1,6 @@
 # Golang Study
 
-#### New keywords and simple usage explanation:
+#### New keywords and simple usage explanation by examples:
 * Defer: A defer statement defers the execution of a function until the surrounding function returns.
   ```
   package main
@@ -42,7 +42,7 @@
   // &{CDF}
   // CDF
   ```
-* Receivers of methods: if a method has a receiver, then it cannot be called directly. The example below explains it
+* Receivers of methods: if a method has a receiver, then it cannot be called directly.
   ```
   package main
 
