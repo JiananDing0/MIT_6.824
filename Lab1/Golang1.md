@@ -29,6 +29,7 @@
     // Declare a new object with type A
     a := A{ID:"ABC"}
     fmt.Println(a.ID)
+    
     // Declare a new pointer pointed to address of a new empty A object
     aPointer := new(A)
     fmt.Println(aPointer)
