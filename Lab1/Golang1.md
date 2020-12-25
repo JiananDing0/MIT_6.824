@@ -1,7 +1,7 @@
 # Golang Study
 
 #### New keywords and simple usage explanation by examples:
-* Defer: A defer statement defers the execution of a function until the surrounding function returns.
+##### Defer: A defer statement defers the execution of a function until the surrounding function returns.
   ```
   package main
 
@@ -15,7 +15,7 @@
   // Hello
   // world
   ```
-* Type define and initialize, memory allocation: 
+##### Type define and initialize, memory allocation: 
   ```
   package main
 
@@ -43,7 +43,7 @@
   // &{CDF}
   // CDF
   ```
-* Receivers of methods: if a method has a receiver, then it cannot be called directly.
+##### Receivers of methods: if a method has a receiver, then it cannot be called directly.
   ```
   package main
 
@@ -74,4 +74,32 @@
   // Executing the code above will produce
   // 5
   // 50
+  ```
+##### Interface: a special method to support polymorphism
+  ```
+  package main
+
+  import "fmt"
+  
+  type I interface {
+    M()
+  }
+  
+  type T1 struct{}
+  
+  func (T1) M() { fmt.Println("T1.M") }
+  
+  type T2 struct{}
+  
+  func (T2) M() { fmt.Println("T2.M") }
+  
+  func f(i I) { i.M() }
+  
+  func main() {
+      f(T1{}) // "T1.M"
+      f(T2{}) // "T2.M"
+  }
+  // Executing the code above will produce
+  // T1.M
+  // T2.M
   ```
