@@ -1,6 +1,6 @@
 # Golang Study
 
-#### New keywords and simple usage explanation by examples:
+#### New keywords and usages in Golang explained by examples:
 ##### Defer: A defer statement defers the execution of a function until the surrounding function returns.
   ```
   package main
@@ -103,3 +103,6 @@
   // T1.M
   // T2.M
   ```
+##### Plugin: reference from [here](https://golang.org/pkg/plugin/)
+* We can run command ```go build -buildmode=plugin FILENAME.go``` to create a plugin file named ```FILENAME.so```. The plugin file ```FILENAME.so``` is derived from ```FILENAME.go```, which all functions and variables in this file are now built as exported functions and variables.
+* If another file needs to use those exported functions or variables from the plugin file ```FILENAME.so```, the file should first ```import "plugin"```, then use methods from the imported library to do that.
