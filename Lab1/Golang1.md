@@ -1,7 +1,7 @@
 # Golang Study
 
 #### New keywords and usages in Golang explained by examples:
-##### Defer: A defer statement defers the execution of a function until the surrounding function returns.
+##### 1. Defer: A defer statement defers the execution of a function until the surrounding function returns.
   ```
   package main
 
@@ -15,7 +15,7 @@
   // Hello
   // world
   ```
-##### Type define and initialize, memory allocation: 
+##### 2. Type define and initialize, memory allocation: 
   ```
   package main
 
@@ -43,7 +43,7 @@
   // &{CDF}
   // CDF
   ```
-##### Receivers of methods: if a method has a receiver, then it cannot be called directly.
+##### 3. Receivers of methods: if a method has a receiver, then it cannot be called directly.
   ```
   package main
 
@@ -75,7 +75,7 @@
   // 5
   // 50
   ```
-##### Interface: a special method to support polymorphism
+##### 4. Interface: a special method to support polymorphism
   ```
   package main
 
@@ -103,6 +103,9 @@
   // T1.M
   // T2.M
   ```
-##### Plugin: reference from [here](https://golang.org/pkg/plugin/)
+##### 5. Plugin: reference from [here](https://golang.org/pkg/plugin/)
 * We can run command ```go build -buildmode=plugin FILENAME.go``` to create a plugin file named ```FILENAME.so```. The plugin file ```FILENAME.so``` is derived from ```FILENAME.go```, which all functions and variables in this file are now built as exported functions and variables.
 * If another file needs to use those exported functions or variables from the plugin file ```FILENAME.so```, the file should first ```import "plugin"```, then use methods from the imported library to do that.
+##### 6. Concurrency in Golang
+* To create a new thread, we can use keyword **go** to call another function. More information can be checked [here](http://www.golang-book.com/books/intro/10).
+* To add lock to concurrency, we can use **sync.Cond**. More information can be checked [here](https://go101.org/article/concurrent-synchronization-more.html).
