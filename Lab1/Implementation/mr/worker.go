@@ -62,7 +62,6 @@ func RPCCall(mapf func(string, string) []KeyValue, reducef func(string, []string
 	// send the RPC request, wait for the reply.
 	for call("Master.JobApplyHandler", &getJobArg, &reply) {
 		doneJobArg := DoneArgs{JobID: reply.Job.ID}
-		// fmt.Printf("Start working on type %d job with source %v.\n", reply.Job.Type, reply.Job.Source)
 		// Do job
 		if reply.Job.Type == 0 {
 			// Open files
@@ -85,7 +84,8 @@ func RPCCall(mapf func(string, string) []KeyValue, reducef func(string, []string
 				if err != nil {
 					log.Fatalf("cannot create temp file mr-out-%d", i)
 				}
-				doneJobArg.TargetFiles = append(doneJobArg.TargetFiles, tmpfile.Name())
+				doneJobArg.TempFiles = append(doneJobArg.TempFiles, tmpfile.Name())
+				doneJobArg.TargetFiles = append(doneJobArg.TargetFiles, "mr-out-"+strconv.Itoa(i)+"-id-"+strconv.Itoa(reply.Job.ID))
 				encoderList[i] = json.NewEncoder(tmpfile)
 			}
 
@@ -114,18 +114,17 @@ func RPCCall(mapf func(string, string) []KeyValue, reducef func(string, []string
 					kva = append(kva, kv)
 				}
 				file.Close()
-				os.Remove(filename)
 			}
 
 			sort.Sort(ByKey(kva))
 
-			oname := "mr-out-" + strconv.Itoa(reply.Job.ID-len(reply.Job.Source))
-			ofile, _ := os.Create(oname)
+			ofile, err := ioutil.TempFile("", "mr-out-"+strconv.Itoa(reply.Job.ID-len(reply.Job.Source))+"-crash")
+			if err != nil {
+				log.Fatalf("cannot create temp file mr-out-%d", reply.Job.ID-len(reply.Job.Source))
+			}
+			doneJobArg.TempFiles = append(doneJobArg.TempFiles, ofile.Name())
+			doneJobArg.TargetFiles = append(doneJobArg.TargetFiles, "mr-out-"+strconv.Itoa(reply.Job.ID-len(reply.Job.Source)))
 
-			//
-			// call Reduce on each distinct key in intermediate[],
-			// and print the result to mr-out-0.
-			//
 			i := 0
 			for i < len(kva) {
 				j := i + 1
@@ -143,6 +142,11 @@ func RPCCall(mapf func(string, string) []KeyValue, reducef func(string, []string
 				i = j
 			}
 			ofile.Close()
+
+			// Remove unnecessary files
+			for _, filename := range reply.Job.Source {
+				os.Remove(filename)
+			}
 		}
 		call("Master.JobDoneHandler", &doneJobArg, &reply)
 	}

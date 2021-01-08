@@ -75,10 +75,12 @@ func (m *Master) JobDoneHandler(args *DoneArgs, reply *Reply) error {
 	m.JobLock.L.Lock()
 	if args.JobID >= len(m.MapQueue) {
 		m.ReduceQueue[args.JobID-len(m.MapQueue)].Status = 2
+		os.Rename(args.TempFiles[0], args.TargetFiles[0])
 	} else {
 		m.MapQueue[args.JobID].Status = 2
-		for i, filename := range args.TargetFiles {
-			m.ReduceQueue[i].Source[args.JobID] = filename
+		for i, filename := range args.TempFiles {
+			os.Rename(filename, args.TargetFiles[i])
+			m.ReduceQueue[i].Source[args.JobID] = args.TargetFiles[i]
 		}
 	}
 

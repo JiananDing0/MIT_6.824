@@ -32,9 +32,11 @@ type ApplyArgs struct{}
 // DoneArgs ...
 // The rpc workers send for notifying a job is done
 // JobID:			the pointer to the corresponding job
-// TargetFiles:	the output file names
+// TempFiles: 		the temporary file names
+// TargetFiles:		the target output file names
 type DoneArgs struct {
 	JobID       int
+	TempFiles   []string
 	TargetFiles []string
 }
 
