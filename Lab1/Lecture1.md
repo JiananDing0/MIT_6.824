@@ -1,4 +1,4 @@
-# Lecture 1
+# Lecture 1: Introduction
 
 #### Reason of distributed systems:
 * Parallelism between computers to get large job done.
