@@ -21,5 +21,5 @@
   - Each **chunk** is identified by an *immutable and globally unique* 64 bit **chunk handle** assigned by the master *at the time of chunk creation*.
   - For reliability, **each chunk** is replicated on 3 other chunkservers by default, though users can designate different replication levels.
 * Difficult points in GFS system:
+  - Namespace in GFS: what is the definition of namespace? what are the differences between namespaces and filenames?
   - Operation log and checkpoints: how are the checkpoints actually implemented?
-  - 
