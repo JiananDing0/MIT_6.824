@@ -11,4 +11,15 @@
   - Fundamental operations of all file systems, including **create**, **delete**, **open**, **close**, **read**, and **write**.
   - **Snapshot**: creates a copy of a file or a directory tree at low cost. 
   - **Record Append**: allows multiple clients to append data to the same file *concurrently* while guaranteeing the *atomicity* of each individual client’s append.
-
+* GFS Architecture
+  | ![Overview of the execution process](Images/Architecture.png) | 
+  |:--:| 
+  - A **single master** and **multiple chunk servers**. 
+  - **Master** stores directoriies and filenames in tree structrue.
+  - **Chunk servers** store all chunk of data using linux file system.
+  - Each **file** is divided into *fixed-size* **chunks**.
+  - Each **chunk** is identified by an *immutable and globally unique* 64 bit **chunk handle** assigned by the master *at the time of chunk creation*.
+  - For reliability, **each chunk** is replicated on 3 other chunkservers by default, though users can designate different replication levels.
+* Difficult points in GFS system:
+  - Operation log and checkpoints: how are the checkpoints actually implemented?
+  - 
