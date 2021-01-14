@@ -24,5 +24,6 @@
   - Notice that the clients are not applications. If applications are trying to read several bytes of data and store those data in a buffer, the application will provide the corresponding filename and byte offsets to the client, and the client will then do the execution.
 * GFS Write Operation
   - The majority type of write in GFS is called record appends. In order to keep the atomicity of writing operations, GFS will always try to append some data to all replicas. If some append operations failed, the whole operation will be regarded as a failure and re-executed. As a result, GFS may insert padding or record duplicates in chunks, those areas are considered to be inconsistent and are typically dwarfed by the amount of user data.
-* Major restrictions to GFS system
-  - The single master makes it difficult to keep information of tremendous number of files. The execution speed of a single CPU limited the number of requests the master could deal with in one second.
+* Major restrictions to GFS system: single master
+  - The restricted number of RAMs we can have in a single master makes it difficult to keep information of tremendous number of files. 
+  - The execution speed of a single CPU limited the number of requests the master could deal with in one second.
