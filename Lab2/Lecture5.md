@@ -27,3 +27,4 @@ go func() {
   }
 }
 ```
+* Sometimes, buffered channel might cause problems. As a result, either choose unbuffered channel or using locks. Locks can always substitute channels.
