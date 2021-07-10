@@ -4,4 +4,4 @@ Part B requires the implementation of logs and log replication. Here is a list o
 *
 
 #### List of const/struct/function modified
-* Start
+* Function: Start(command interface{}) (int, int, bool)
