@@ -4,3 +4,6 @@ The Raft lab is divided into 3 parts: A, B and C.
 * The implementation of part C can be found [here](PartC)
 
 #### Basic ideas of raft
+* State Maching:
+
+* Possible conditions of status change:
